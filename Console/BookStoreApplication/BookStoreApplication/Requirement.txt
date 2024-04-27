@@ -1,0 +1,26 @@
+A console application for storing the books:
+
+A book should have:
+Title: string
+Description: string
+Edition: number
+
+the boostore should have the following commands:
+
+Add:
+"Please enter the Title":
+<title>"
+Please enter the Description":
+<Description>
+Please enter the Edition":
+<Edition>
+
+List:
+It should output all the info about the books
+
+Additional optional requirements:
+1. Only allow unique names in the store.
+2. Place the code in github.
+3. Delete functionality 
+
+
