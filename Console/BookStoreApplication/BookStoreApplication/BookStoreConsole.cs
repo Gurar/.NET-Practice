@@ -22,6 +22,11 @@ namespace BookStoreApplication
 
                 _bookStore.Add(title, description, amount);
             }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             catch (Exception ex)
             {
                 Console.WriteLine("Something bad has happened, please try again");

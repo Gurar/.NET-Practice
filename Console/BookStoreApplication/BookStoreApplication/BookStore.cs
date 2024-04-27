@@ -8,6 +8,13 @@ namespace BookStoreApplication
 
         public void Add(string title, string description, int amount)
         {
+            var bookExists = books.Any(book => book.Title == title);
+
+            if (bookExists)
+            {
+                throw new ArgumentException("Book already exists");
+            }
+
             var book = new Book(title, description, amount);
       
             books.Add(book);
