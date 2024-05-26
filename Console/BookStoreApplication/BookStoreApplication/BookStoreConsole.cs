@@ -1,5 +1,7 @@
 ﻿
 
+using BookStoreApplication.Models;
+
 namespace BookStoreApplication
 {
     public class BookStoreConsole
@@ -31,6 +33,72 @@ namespace BookStoreApplication
             {
                 Console.WriteLine("Something bad has happened, please try again");
             }
+        }
+
+        public void ExecuteUpdate()
+        {
+
+            try
+            {
+                Console.WriteLine("Write book title");
+                var title = Console.ReadLine();
+
+                var updateBook = _bookStore.GetAll().SingleOrDefault(book => book.Title == title);
+
+                if (updateBook != null)
+                {
+                    Console.WriteLine("Write book title");
+                    var updateTitle = Console.ReadLine();
+
+                    if (updateTitle.Length == 0)
+                    {
+                        updateTitle = title;
+                    }
+
+                    Console.WriteLine("Write book description");
+                    var updateDescription = Console.ReadLine();
+
+                    if (updateDescription.Length == 0)
+                    {
+                        updateDescription = updateBook.Description;
+                    }
+
+                    Console.WriteLine("Write book anount");
+                    var updateAmount = Convert.ToInt32(Console.ReadLine());
+
+                    if (updateAmount <= 0)
+                    {
+                        updateAmount = updateBook.Amount;
+                    }
+
+                    var updateBookInfo = new Book(updateTitle, updateDescription, updateAmount);
+
+                    _bookStore.Update(updateBook, updateBookInfo);
+
+
+                }
+                else
+                {
+                    Console.WriteLine("Book what you want update not found");
+                }
+
+
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Something bad has happened, please try again");
+            }
+
+            
+            
+
+            //var updateBook = new Book (title, description, amount );
+
         }
 
         public void ExecuteList()

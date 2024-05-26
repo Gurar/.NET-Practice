@@ -18,6 +18,9 @@ while (true)
         case "Add":
             bookStoreConsole.ExecuteAdd();
             break;
+        case "Update":
+            bookStoreConsole.ExecuteUpdate();
+            break;
         case "Delete":
             bookStoreConsole.ExecuteDelete();
             break;

@@ -25,9 +25,23 @@ namespace BookStoreApplication
             return books;
         }
 
+        public void Update(Book book, Book updateBookInfo)
+        {
+            
+            if (book != null)
+            {
+                book.Title = updateBookInfo.Title;
+                book.Description = updateBookInfo.Description;
+                book.Amount = updateBookInfo.Amount;
+            }
+
+        }
+
         public void Delete(string title)
         {
             books.RemoveAll(book => book.Title == title);
+
+            Console.WriteLine($"Book what what title: {title} is successfully removed");
         }
     }
 }
